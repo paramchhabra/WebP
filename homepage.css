@@ -1,0 +1,57 @@
+body{
+    margin: 5% 10%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.rightframe{
+    background-color: #A6A6A6;
+}
+
+body.leftframe{
+    background-color: #F2ECFF;
+}
+
+.leftimage{
+    width: 70%;
+    border-radius: 10px;
+}
+
+h1{
+    font-size: 45px;
+}
+
+.gridbox{
+    display: grid;
+    row-gap: 5em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.rows{
+    display: flex;
+    column-gap: 5em;
+}
+
+.gridlink{
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.gridelement{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F2ECFF;
+    height: 30vh;
+    width: 30vh;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.gridelement:hover{
+    height: 31vh;
+    width: 31vh;
+}

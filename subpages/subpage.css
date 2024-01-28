@@ -1,0 +1,67 @@
+h1{
+    font-size: 45px;
+}
+
+h2{
+    font-size: 32px;
+}
+
+h3{
+    font-size: 25px;
+}
+
+li{
+    font-size: 22px;
+}
+
+body{
+    margin: 2% 10%;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #A6A6A6;
+}
+
+p{
+    font-size: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+button{
+    color: white;
+    border: 0;
+    background-color: black;
+    height: 50px;
+    width: 65px;
+    border-radius: 5px;
+    margin-bottom: 1em;
+}
+
+button:hover{
+    cursor: pointer;
+    box-shadow: inset -2px -2px 5px white;
+}
+
+.aboutimg{
+    border-radius: 5px;
+    width: 40%
+}
+
+.imagesaboutme{
+    display:flex;
+    column-gap:5em;
+}
+
+.projectphotos{
+    display: flex;
+    column-gap: 3em;
+    width: 100%;
+    overflow: scroll;
+}
+
+input{
+    display: block;
+    height: 20px;
+}

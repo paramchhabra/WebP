@@ -1,0 +1,16 @@
+About me:
+1. Name: Param Chhabra
+2. Born: 9th march 2004
+3. Hometown: Jaipur, Rajasthan
+4. School: Jayshree Periwal High School
+5. 12th passing percentage: 94.5% 
+6. College: Vellore Institute of Technology
+7. No professional Experience yet
+8. Studying Btech in Computer Science
+9. Like coding
+
+
+Projects:
+1. Railway Management: my first project, project to help people with easier railway ticket booking and train tracking status, easy connection between passengers and train companies, fast system and connection, languages used Python and MySQL
+2. PawSome Adoptions: project made during my first hackathon, aims to help stray animals get adopted to lead a better life, makes a connection portal between the rescuer and the adopter, secure personal details transfer system between adopter and rescuer, languages used, HTML, CSS(Tailwind), Vanila Javascript
+3. Vitamart: project made during my second hackathon, aims to establish product trading in VIT and other engineering colleges, secure chatting system between buyer and seller to communicate about product, auction process to not get unfair prices, languages used SVELTE Framework
