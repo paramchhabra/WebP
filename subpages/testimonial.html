@@ -14,5 +14,33 @@
     <p><b>4. From project Supervisor:</b>"I had the opportunity to supervise Param on the RailwayManagement project. Their proficiency in Python and MySQL was evident in the development of an efficient railway ticket management system. Param displayed strong analytical and coding skills, ensuring the successful implementation of the project. I am confident in their ability to excel in future endeavors."</p>
     <p><b>5. From a college senior:</b>"As a senior in the technical clubs like IEEE and IET, I had the pleasure of mentoring Param. They actively sought opportunities to learn and collaborate, displaying a genuine passion for coding languages. Param's dedication to expanding their knowledge and collaborating with experienced seniors reflects their commitment to personal and professional growth."</p>
     <a href="../rightframe.html" style="margin-left: 99%;"><button>Home</button></a>
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+
 </body>
+
+<script>
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollToTopBtn.style.display = "block";
+    } else {
+        scrollToTopBtn.style.display = "none";
+    }
+}
+
+scrollToTopBtn.addEventListener("click", function() {
+    topFunction();
+});
+
+function topFunction() {
+    document.body.scrollTop = 0; 
+    document.documentElement.scrollTop = 0; 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
 </html>

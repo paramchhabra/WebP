@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="subpage.css">
+
 </head>
 <body>
     <h1>Projects Portfolio</h1>
@@ -54,7 +55,49 @@
         </li>
         <li><b>Technologies Used:</b>SVELTE Framework for frontend development.</li>
     </ul>
+    </ul>
     <br>
     <a href="../rightframe.html" style="margin-left: 99%;"><button>Home</button></a>
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+
+    <script>
+        const carousel = document.querySelector('.projectphotos');
+        let currentImageIndex = 0;
+
+        function scrollNext() {
+            currentImageIndex++;
+            if (currentImageIndex >= carousel.children.length) {
+                currentImageIndex = 0;
+            }
+            carousel.scrollLeft = carousel.children[currentImageIndex].offsetLeft;
+        }
+
+        setInterval(scrollNext, 2500);
+
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    }
+
+    scrollToTopBtn.addEventListener("click", function() {
+        topFunction();
+    });
+
+    function topFunction() {
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0; 
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    </script>
+
 </body>
 </html>

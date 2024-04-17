@@ -89,5 +89,33 @@
     <br>
     <a href="Param Chhabra.pdf" style="margin-left: 99%;" target="_blank"><button style="width: 100px;">Resume PDF</button></a>
     <a href="../rightframe.html" style="margin-left: 99%;"><button>Home</button></a>
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
 </body>
+
+<script>
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    }
+
+    scrollToTopBtn.addEventListener("click", function() {
+        topFunction();
+    });
+
+    function topFunction() {
+        document.body.scrollTop = 0; 
+        document.documentElement.scrollTop = 0; 
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+
 </html>

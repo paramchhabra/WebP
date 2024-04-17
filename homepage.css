@@ -38,6 +38,9 @@ h1{
     text-align: center;
     text-decoration: none;
     color: black;
+    position: relative;
+    overflow: hidden;
+    transition: all 1s ease;
 }
 
 .gridelement{
@@ -49,9 +52,4 @@ h1{
     width: 30vh;
     border-radius: 10px;
     transition: all 0.3s ease;
-}
-
-.gridelement:hover{
-    height: 31vh;
-    width: 31vh;
 }

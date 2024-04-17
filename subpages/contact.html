@@ -6,7 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="subpage.css">
 </head>
+
+
 <body>
+    <style>
+        label {
+            display: inline-block;
+            width: 140px;
+            text-align: left;
+            position: relative;
+        }
+    </style>
     <h1>Contact me</h1>
     <h3>For any further queries or collaborations, kindly contact me through the following social media platforms:</h3>
     <ul>
@@ -15,9 +25,10 @@
         <li><a href="">Github</a></li>
     </ul>
     <br>
-    <h3>If not reachable, send me the query using the following form, I will revert you back through email or phone number in 2-3 days:</h3>
+    <h3>If not reachable, send me the query using the following form, I will revert you back through email or phone
+        number in 2-3 days:</h3>
 
-    <form>
+    <form id="mainform" onsubmit="subform(event)">
         <label for="fname">First Name:</label>
         <input type="text" name="fname">
         <br>
@@ -30,8 +41,57 @@
         <label for="email">Email:</label>
         <input type="email" name="email">
         <br>
-        <a href="../rightframe.html" style="margin-left: 99%;"><button style="width: 80px;">Submit Form</button></a>
+        <h3 id="formsubmission"></h3>
+        <br>
+        <button class="specbutton" type="submit" style="width: 80px;">Submit Form</button>
     </form>
     <a href="../rightframe.html" style="margin-left: 99%;"><button>Home</button></a>
+    <button id="scrollToTopBtn" title="Go to top">↑</button>
+
 </body>
+
+<script>
+    function subform(event) {
+        event.preventDefault();
+        var form = document.getElementById("mainform");
+        var inputs = form.getElementsByTagName('input');
+        var filled = true;
+        for (let i = 0; i < inputs.length; i++) {
+            if (inputs[i].value == "") {
+                filled = false;
+                alert("Please Fill all the details!!")
+                break;
+            }
+        }
+        if (filled) {
+            var output = document.getElementById("formsubmission");
+            output.innerHTML ="FORM SUBMITTED";
+        }
+
+    }
+
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function () {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.display = "block";
+        } else {
+            scrollToTopBtn.style.display = "none";
+        }
+    }
+
+    scrollToTopBtn.addEventListener("click", function () {
+        topFunction();
+    });
+
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
 </html>

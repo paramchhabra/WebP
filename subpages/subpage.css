@@ -29,6 +29,10 @@ a{
     color: white;
 }
 
+button.specbutton{
+    margin-left: 98%;
+}
+
 button{
     color: white;
     border: 0;
@@ -56,12 +60,52 @@ button:hover{
 
 .projectphotos{
     display: flex;
-    column-gap: 3em;
+    overflow: hidden;
+    width: 50%;
+    position: relative;
+    scroll-behavior: smooth;
+}
+
+.projectphotos img {
     width: 100%;
-    overflow: scroll;
 }
 
 input{
-    display: block;
     height: 20px;
+    margin-bottom: 1%;
+}
+
+
+.highlight {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .highlight::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .highlight.highlight-on-hover::after {
+    width: 100%;
+  }
+
+  #scrollToTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #000000;
+    cursor: pointer;
+    padding: 15px;
 }
