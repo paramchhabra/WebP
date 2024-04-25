@@ -20,9 +20,12 @@
         const element = document.getElementById("datetime");
         setInterval(function() {
             const date = new Date();
-            let d = date.toUTCString();
+            const options = {
+                timeZone: 'Asia/Kolkata',
+            };
+            let d = date.toLocaleString('en-US', options);
             element.innerHTML = d;
-        },1000);
+        }, 1000);
     </script>
 </body>
 </html>

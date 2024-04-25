@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="subpage.css">
 </head>
+
 <body>
     <h1>Resume</h1>
     <h2>Param Chhabra</h2>
@@ -16,7 +18,9 @@
     </ul>
     <br>
     <h2>Objective</h2>
-    <p>Aspiring Computer Science student with a passion for programming and web development, seeking opportunities to apply technical skills, collaborate on innovative projects, and contribute to the dynamic field of technology.</p>
+    <p>Aspiring Computer Science student with a passion for programming and web development, seeking opportunities to
+        apply technical skills, collaborate on innovative projects, and contribute to the dynamic field of technology.
+    </p>
     <br>
     <h2>Education</h2>
     <h3>Bachelor of Technology in Computer Science (Ongoing)</h3>
@@ -43,7 +47,8 @@
     </ul>
     <h3>Learning</h3>
     <ul>
-        <li>Rust programming language with focus on efficient memory management, web server development, and database management</li>
+        <li>Rust programming language with focus on efficient memory management, web server development, and database
+            management</li>
         <li>Exploring frontend frameworks for desktop and web applications</li>
     </ul>
     <h3>Data Structures and Algorithms</h3>
@@ -69,9 +74,14 @@
     <br>
     <h2>Experience</h2>
     <h3>Hackathons:</h3>
-    <ul><li>Participated in two college-level hackathons, qualifying for the second round in each.</li></ul>
+    <ul>
+        <li>Participated in two college-level hackathons, qualifying for the second round in each.</li>
+    </ul>
     <h3>Club Collaborations:</h3>
-    <ul><li>Collaborated with seniors from technical clubs like IEEE and IET for hands-on experience and knowledge in coding languages.</li></ul>
+    <ul>
+        <li>Collaborated with seniors from technical clubs like IEEE and IET for hands-on experience and knowledge in
+            coding languages.</li>
+    </ul>
     <br>
     <h2>Languages</h2>
     <ul>
@@ -87,7 +97,8 @@
         <li>Bowling</li>
     </ul>
     <br>
-    <a href="Param Chhabra.pdf" style="margin-left: 99%;" target="_blank"><button style="width: 100px;">Resume PDF</button></a>
+    <a href="Param Chhabra.pdf" style="margin-left: 99%;" target="_blank"><button style="width: 100px;">Resume
+            PDF</button></a>
     <a href="../rightframe.html" style="margin-left: 99%;"><button>Home</button></a>
     <button id="scrollToTopBtn" title="Go to top">↑</button>
 </body>
@@ -95,7 +106,8 @@
 <script>
     var scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-    window.onscroll = function() {
+
+    window.onscroll = function () {
         scrollFunction();
     };
 
@@ -107,14 +119,37 @@
         }
     }
 
-    scrollToTopBtn.addEventListener("click", function() {
+    scrollToTopBtn.addEventListener("click", function () {
         topFunction();
     });
 
     function topFunction() {
-        document.body.scrollTop = 0; 
-        document.documentElement.scrollTop = 0; 
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        smoothScrollToTop(1000);
+    }
+
+    function smoothScrollToTop(duration) {
+        var start = window.pageYOffset;
+        var startTime = null;
+
+        function scroll(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = timestamp - startTime;
+
+            window.scrollTo(0, easeInOutCubic(start, 0, progress, duration));
+
+            if (progress < duration) {
+                window.requestAnimationFrame(scroll);
+            }
+        }
+
+        function easeInOutCubic(start, end, progress, duration) {
+            progress /= duration / 12;
+            if (progress < 1) return (end - start) / 2 * progress * progress * progress + start;
+            progress -= 2;
+            return (end - start) / 2 * (progress * progress * progress + 2) + start;
+        }
+
+        window.requestAnimationFrame(scroll);
     }
 </script>
 

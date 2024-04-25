@@ -1,44 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="subpage.css">
 </head>
+
 <body>
     <h1>Skills</h1>
     <h2>Programming Languages:</h2>
-    <p>In programming languages, I am proficient in <span class="highlight">JavaScript</span>, with a focus on server-side development using <span class="highlight">Node.js</span>. Additionally, I demonstrate strong proficiency in <span class="highlight">Rust</span>, emphasizing efficient memory management and robust code implementation. While I have a basic knowledge of <span class="highlight">Python</span>, <span class="highlight">C</span>, <span class="highlight">C++</span>, and <span class="highlight">Java</span>, my foundation spans a versatile range of programming languages.</p>
+    <p>In programming languages, I am proficient in <span class="highlight">JavaScript</span>, with a focus on
+        server-side development using <span class="highlight">Node.js</span>. Additionally, I demonstrate strong
+        proficiency in <span class="highlight">Rust</span>, emphasizing efficient memory management and robust code
+        implementation. While I have a basic knowledge of <span class="highlight">Python</span>, <span
+            class="highlight">C</span>, <span class="highlight">C++</span>, and <span class="highlight">Java</span>, my
+        foundation spans a versatile range of programming languages.</p>
     <br>
     <h2>Web Development:</h2>
-    <p>My expertise in web development spans both frontend and backend technologies. On the frontend, I am adept at crafting the structure and styling of web pages using <span class="highlight">HTML</span>, <span class="highlight">CSS</span>, and <span class="highlight">JavaScript</span>. I leverage frameworks such as <span class="highlight">Tailwind CSS</span> and <span class="highlight">Bootstrap</span> for efficient and responsive design, showcasing a commitment to modern web development practices. In the backend, I excel in using <span class="highlight">Express.js</span> to build robust and scalable web servers, complemented by proficiency in <span class="highlight">MongoDB</span> for effective database management.</p>
+    <p>My expertise in web development spans both frontend and backend technologies. On the frontend, I am adept at
+        crafting the structure and styling of web pages using <span class="highlight">HTML</span>, <span
+            class="highlight">CSS</span>, and <span class="highlight">JavaScript</span>. I leverage frameworks such as
+        <span class="highlight">Tailwind CSS</span> and <span class="highlight">Bootstrap</span> for efficient and
+        responsive design, showcasing a commitment to modern web development practices. In the backend, I excel in using
+        <span class="highlight">Express.js</span> to build robust and scalable web servers, complemented by proficiency
+        in <span class="highlight">MongoDB</span> for effective database management.</p>
     <br>
     <h2>Learning:</h2>
-    <p>My learning journey is characterized by a dedicated focus on expanding my skills. In <span class="highlight">Rust</span>, I am actively enhancing my expertise, concentrating on efficient memory management, web server development, and database management. Simultaneously, I am exploring modern frontend frameworks for both desktop and web applications, reflecting my eagerness to stay abreast of evolving technologies.</p>
+    <p>My learning journey is characterized by a dedicated focus on expanding my skills. In <span
+            class="highlight">Rust</span>, I am actively enhancing my expertise, concentrating on efficient memory
+        management, web server development, and database management. Simultaneously, I am exploring modern frontend
+        frameworks for both desktop and web applications, reflecting my eagerness to stay abreast of evolving
+        technologies.</p>
     <br>
     <h2>Data Structure and Algorithms</h2>
-    <p>My proficiency in data structures includes a solid understanding of fundamental concepts such as Arrays, Linked Lists, Binary Trees, and Hashmaps. I am well-versed in sorting and searching algorithms, showcasing a robust foundation in algorithmic problem-solving. Currently, I am engaged in the ongoing learning process of designing and analyzing algorithms, with a focus on concepts like time complexity and algorithm building.</p>
+    <p>My proficiency in data structures includes a solid understanding of fundamental concepts such as Arrays, Linked
+        Lists, Binary Trees, and Hashmaps. I am well-versed in sorting and searching algorithms, showcasing a robust
+        foundation in algorithmic problem-solving. Currently, I am engaged in the ongoing learning process of designing
+        and analyzing algorithms, with a focus on concepts like time complexity and algorithm building.</p>
     <a href="../rightframe.html" style="margin-left: 99%;"><button>Home</button></a>
     <button id="scrollToTopBtn" title="Go to top">↑</button>
 
 </body>
 
 <script>
-        const highlightElements = document.querySelectorAll('.highlight');
+    const highlightElements = document.querySelectorAll('.highlight');
 
-highlightElements.forEach(element => {
-  element.addEventListener('mouseover', () => {
-    element.classList.add('highlight-on-hover');
-  });
+    highlightElements.forEach(element => {
+        element.addEventListener('mouseover', () => {
+            element.classList.add('highlight-on-hover');
+        });
 
-  element.addEventListener('mouseout', () => {
-    element.classList.remove('highlight-on-hover');
-  });
-});
-var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        element.addEventListener('mouseout', () => {
+            element.classList.remove('highlight-on-hover');
+        });
+    });
+    var scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-    window.onscroll = function() {
+    window.onscroll = function () {
         scrollFunction();
     };
 
@@ -50,14 +70,38 @@ var scrollToTopBtn = document.getElementById("scrollToTopBtn");
         }
     }
 
-    scrollToTopBtn.addEventListener("click", function() {
+    scrollToTopBtn.addEventListener("click", function () {
         topFunction();
     });
 
     function topFunction() {
-        document.body.scrollTop = 0; 
-        document.documentElement.scrollTop = 0; 
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        smoothScrollToTop(1000);
+    }
+
+    function smoothScrollToTop(duration) {
+        var start = window.pageYOffset;
+        var startTime = null;
+
+        function scroll(timestamp) {
+            if (!startTime) startTime = timestamp;
+            var progress = timestamp - startTime;
+
+            window.scrollTo(0, easeInOutCubic(start, 0, progress, duration));
+
+            if (progress < duration) {
+                window.requestAnimationFrame(scroll);
+            }
+        }
+
+        function easeInOutCubic(start, end, progress, duration) {
+            progress /= duration / 12;
+            if (progress < 1) return (end - start) / 2 * progress * progress * progress + start;
+            progress -= 2;
+            return (end - start) / 2 * (progress * progress * progress + 2) + start;
+        }
+
+        window.requestAnimationFrame(scroll);
     }
 </script>
+
 </html>
