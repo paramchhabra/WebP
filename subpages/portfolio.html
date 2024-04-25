@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,15 @@
     <link rel="stylesheet" href="subpage.css">
 
 </head>
+
 <body>
     <h1>Projects Portfolio</h1>
     <h2>1. Railway Management</h2>
     <ul>
         <li>My first project</li>
-        <li><b>Objective:</b>The Railway Management System is designed to simplify the process of railway ticket booking and provide real-time train tracking status. The goal is to create a seamless connection between passengers and train companies, ensuring a fast and efficient system.</li>
+        <li><b>Objective:</b>The Railway Management System is designed to simplify the process of railway ticket booking
+            and provide real-time train tracking status. The goal is to create a seamless connection between passengers
+            and train companies, ensuring a fast and efficient system.</li>
         <li><b>Features:</b>
             <ul>
                 <li>Easy railway ticket booking.</li>
@@ -25,7 +29,9 @@
     <br>
     <h2>2. PawSome Adoptions</h2>
     <ul>
-        <li><b>Objective:</b>PawSome Adoptions, developed during a hackathon, aims to facilitate the adoption of stray animals. It serves as a connection portal between rescuers and potential adopters, ensuring a secure system for transferring personal details between the two parties.</li>
+        <li><b>Objective:</b>PawSome Adoptions, developed during a hackathon, aims to facilitate the adoption of stray
+            animals. It serves as a connection portal between rescuers and potential adopters, ensuring a secure system
+            for transferring personal details between the two parties.</li>
         <li><b>Features:</b>
             <ul>
                 <li>Connection portal for rescuers and adopters.</li>
@@ -46,7 +52,10 @@
     <br>
     <h2>3. VitAmart</h2>
     <ul>
-        <li><b>Objective:</b>Created during a hackathon, Vitamart focuses on establishing a platform for product trading within VIT and other engineering colleges. The project includes a secure chatting system between buyers and sellers, enabling effective communication about products, along with an auction process to prevent unfair pricing.</li>
+        <li><b>Objective:</b>Created during a hackathon, Vitamart focuses on establishing a platform for product trading
+            within VIT and other engineering colleges. The project includes a secure chatting system between buyers and
+            sellers, enabling effective communication about products, along with an auction process to prevent unfair
+            pricing.</li>
         <li><b>Features:</b>
             <ul>
                 <li>Secure chatting system for buyer-seller communication.</li>
@@ -76,28 +85,52 @@
 
         var scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-    window.onscroll = function() {
-        scrollFunction();
-    };
+        window.onscroll = function () {
+            scrollFunction();
+        };
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollToTopBtn.style.display = "block";
-        } else {
-            scrollToTopBtn.style.display = "none";
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
         }
-    }
 
-    scrollToTopBtn.addEventListener("click", function() {
-        topFunction();
-    });
+        scrollToTopBtn.addEventListener("click", function () {
+            topFunction();
+        });
 
-    function topFunction() {
-        document.body.scrollTop = 0; 
-        document.documentElement.scrollTop = 0; 
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+        function topFunction() {
+            smoothScrollToTop(1000);
+        }
+
+        function smoothScrollToTop(duration) {
+            var start = window.pageYOffset;
+            var startTime = null;
+
+            function scroll(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = timestamp - startTime;
+
+                window.scrollTo(0, easeInOutCubic(start, 0, progress, duration));
+
+                if (progress < duration) {
+                    window.requestAnimationFrame(scroll);
+                }
+            }
+
+            function easeInOutCubic(start, end, progress, duration) {
+                progress /= duration / 12;
+                if (progress < 1) return (end - start) / 2 * progress * progress * progress + start;
+                progress -= 2;
+                return (end - start) / 2 * (progress * progress * progress + 2) + start;
+            }
+
+            window.requestAnimationFrame(scroll);
+        }
     </script>
 
 </body>
+
 </html>
